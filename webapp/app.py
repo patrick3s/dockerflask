@@ -1,4 +1,4 @@
-import os
+import os,json
 from flask_cors import CORS,cross_origin
 from flask import Flask,request
 
@@ -17,6 +17,7 @@ def hello():
 def register():
     from save_account import save_account
     data = request.data
+    data = json.loads(data)
     return str(type(data))
     try:
         save_account(data)
