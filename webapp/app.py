@@ -1,10 +1,10 @@
 import os
-
+from flask_cors import CORS,cross_origin
 from flask import Flask,request
 
 #
 app = Flask(__name__)
-
+cors = CORS(app,resource={r'/*':{'origins':'*'}})
 @app.route('/')
 def hello():
     return "hello world"
