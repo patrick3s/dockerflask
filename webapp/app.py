@@ -17,6 +17,7 @@ def hello():
 def register():
     from save_account import save_account
     data = request.json
+    return str(type(data))
     try:
         save_account(data)
         return data
