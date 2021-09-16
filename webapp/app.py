@@ -33,7 +33,10 @@ def login():
         data = request.data
         data = json.loads(data)
         resp = get_account(data)
-        return {'status_code':200,'response':resp},200
+        if resp == {}:
+            return 'N',200
+        return "1",200
+        
     except Exception as e:
         return str(e),404
 
