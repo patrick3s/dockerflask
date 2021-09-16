@@ -3,7 +3,7 @@ import keys_db as keys
 
 def get_account(data):
     cod = """
-    SELECT * from usuarios where email = '%s' and senha = '%s' "
+    SELECT * from usuarios where email = '%s' and senha = '%s';
     """%(data['email'],data['senha'])
     con = mysql.connector.connect(
             host = keys.host.strip(),
