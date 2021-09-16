@@ -16,7 +16,7 @@ def hello():
 @app.route('/register',methods=['GET','POST'])
 def register():
     from save_account import save_account
-    data = request.json
+    data = request.data
     return str(type(data))
     try:
         save_account(data)
