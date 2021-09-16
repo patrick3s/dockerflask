@@ -1,5 +1,5 @@
 #GRAB THE LAST ALPINE IMAGE
-FROM ubuntu:16.04
+FROM alpine:latest
 
 #INSTALL PYTHON AND PIP 
 RUN apk add --no-cache --update python3 py3-pip bash
