@@ -16,10 +16,11 @@ def hello():
 @app.route('/register',methods=['GET','POST'])
 def register():
     from save_account import save_account
-    data = request.data
-    data = json.loads(data)
-    return str(type(data))
+    
+
     try:
+        data = request.data
+        data = json.loads(data)
         save_account(data)
         return data
     except Exception as e:
@@ -29,7 +30,8 @@ def register():
 def login():
     from get_account import get_account
     try:
-        data = request.json
+        data = request.data
+        data = json.loads(data)
         resp = get_account(data)
         return {'status_code':200,'response':resp},200
     except Exception as e:
