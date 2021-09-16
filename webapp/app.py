@@ -4,8 +4,10 @@ from flask import Flask,request
 
 #
 app = Flask(__name__)
-cors = CORS(app,resource={r'/*':{'origins':'*'}})
 app.config['CORS_HEADERS'] = 'Content-Type'
+cors = CORS(app,resource={r'/*':{'origins':'*'}})
+
+
 @app.route('/')
 @cross_origin()
 def hello():
@@ -13,7 +15,13 @@ def hello():
 
 @app.route('/register',methods=['GET','POST'])
 def register():
+    from save_account import save_account
     data = request.data
-    return data,200
+    try:
+        save_account(data)
+        return data
+    except Exception as e:
+        return str(e),404
+    
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
