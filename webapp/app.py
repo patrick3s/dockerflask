@@ -5,7 +5,9 @@ from flask import Flask,request
 #
 app = Flask(__name__)
 cors = CORS(app,resource={r'/*':{'origins':'*'}})
+app.config['CORS_HEADERS'] = 'Content-Type'
 @app.route('/')
+@cross_origin()
 def hello():
     return "hello world"
 
