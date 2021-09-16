@@ -22,6 +22,18 @@ def register():
         return data
     except Exception as e:
         return str(e),404
+
+@app.route('/login',methods=['GET','POST'])
+def login():
+    from get_account import get_account
+    try:
+        data = request.data
+        resp = get_account(data)
+        return {'status_code':200,'response':resp},200
+    except Exception as e:
+        return str(e),404
+
+
     
 if __name__ == "__main__":
     app.run(host='0.0.0.0')

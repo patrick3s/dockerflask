@@ -1,5 +1,5 @@
 import mysql.connector
-import instance.keys_db as keys
+import keys_db as keys
 
 def commit_close(func):
     def decorator(*args):
