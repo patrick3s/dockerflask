@@ -16,7 +16,7 @@ def hello():
 @app.route('/register',methods=['GET','POST'])
 def register():
     from save_account import save_account
-    data = request.data
+    data = request.json
     try:
         save_account(data)
         return data
@@ -27,7 +27,7 @@ def register():
 def login():
     from get_account import get_account
     try:
-        data = request.data
+        data = request.json
         resp = get_account(data)
         return {'status_code':200,'response':resp},200
     except Exception as e:
