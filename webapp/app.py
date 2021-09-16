@@ -33,9 +33,9 @@ def login():
         data = request.data
         data = json.loads(data)
         resp = get_account(data)
-        if resp == {}:
-            return 'N',200
-        return "1",200
+        if resp:
+            return '1',200
+        return "N",200
         
     except Exception as e:
         return str(e),404
